@@ -1,9 +1,13 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { increment } from './actions';
 
 function App() {
+  const counter = useSelector(state => state.counter)
+  const dispatch = useDispatch();
   return (
     <div className="App">
-      <h1>React Redux 101</h1>
+      <h1>Counter {counter}</h1>
+      <button onClick={() => dispatch(increment())}>+</button>
     </div>
   );
 }
